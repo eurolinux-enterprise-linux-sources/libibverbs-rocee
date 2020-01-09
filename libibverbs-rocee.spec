@@ -1,8 +1,6 @@
-%global __obsolete_version 1.1.8
-
 Name: libibverbs-rocee
 Version: 1.1.7
-Release: 1.1%{?dist}
+Release: 1%{?dist}
 Summary: A library for direct userspace use of RDMA (InfiniBand/iWARP) hardware
 Group: System Environment/Libraries
 License: GPLv2 or BSD
@@ -13,7 +11,7 @@ BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 Provides: libibverbs = %{version}
-Obsoletes: libibverbs < %{__obsolete_version}
+Obsoletes: libibverbs < 1.1.8
 BuildRequires: valgrind-devel
 ExcludeArch: s390 s390x
 
@@ -44,7 +42,7 @@ Provides: libibverbs-devel(x86-64) = %{version}
 Provides: libibverbs-devel(ppc-64) = %{version}
 %endif
 Provides: libibverbs-devel = %{version}
-Obsoletes: libibverbs-devel < %{__obsolete_version}
+Obsoletes: libibverbs-devel < 1.1.7
 
 %description devel
 Header files for the libibverbs library.
@@ -57,7 +55,7 @@ Requires: %{name}-devel = %{version}-%{release}
 Provides: libibverbs-devel-static(x86-64) = %{version}
 %endif
 Provides: libibverbs-devel-static = %{version}
-Obsoletes: libibverbs-devel-static < %{__obsolete_version}
+Obsoletes: libibverbs-devel-static < 1.1.7
 
 %description devel-static
 Static libraries for the libibverbs library.
@@ -67,7 +65,7 @@ Summary: Examples for the libibverbs library
 Group: System Environment/Libraries
 Requires: %{name} = %{version}-%{release}
 Provides: libibverbs-utils = %{version}
-Obsoletes: libibverbs-utils < %{__obsolete_version}
+Obsoletes: libibverbs-utils < 1.1.7
 Requires: libibverbs-driver.%{_arch}
 
 %description utils
@@ -119,10 +117,6 @@ rm -rf %{buildroot}
 %{_mandir}/man1/*
 
 %changelog
-* Mon Dec 02 2013 Doug Ledford <dledford@redhat.com> - 1.1.7-1.1
-- Fix obsoletes tags so yum updates work again
-- Resolves: bz1037759
-
 * Mon Oct 28 2013 Doug Ledford <dledford@redhat.com> - 1.1.7-1
 - Update to 1.1.7 to match base product
 - Related: bz879191
@@ -224,7 +218,7 @@ rm -rf %{buildroot}
 * Thu May  4 2006 Roland Dreier <rdreier@cisco.com> - 1.0.4-1
 - New upstream release
 
-* Tue Mar 14 2006 Roland Dreier <rdreier@cisco.com> - 1.0.3-1
+* Mon Mar 14 2006 Roland Dreier <rdreier@cisco.com> - 1.0.3-1
 - New upstream release
 
 * Mon Mar 13 2006 Roland Dreier <rdreier@cisco.com> - 1.0.1-1
